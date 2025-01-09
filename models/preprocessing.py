@@ -14,12 +14,13 @@ class Preprocessing():
                 dataset=None,
                 flag_training=True):
     self.tokenizer = AutoTokenizer.from_pretrained(model_tokenizer)
+    self.max_input_length = max_input_length
+    self.stride = stride
     if flag_training:
       print("-"*50, "Information of Tokenizer", "-"*50)
       print(self.tokenizer)
       print("-"*50, "Information of Tokenizer", "-"*50)
-      self.max_input_length = max_input_length
-      self.stride = stride
+
       self.tokenized_dataset_train = self.map_tokenize_dataset_train(dataset)
       self.tokenized_dataset_val = self.map_tokenize_dataset_val(dataset)
       self.train_loader, self.val_loader = self.data_loader(batch_size)

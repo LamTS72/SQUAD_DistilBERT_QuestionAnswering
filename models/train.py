@@ -14,8 +14,8 @@ from torch.nn.utils.rnn import pad_sequence
 from nltk.tokenize import sent_tokenize
 import collections
 from configs.squad_config import ConfigDataset, ConfigModel, ConfigHelper
-from squad_model import CustomModel
-from preprocessing import Preprocessing
+from models.squad_model import CustomModel
+from models.preprocessing import Preprocessing
 from data.custom_data import CustomDataset
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 print("Used Device: ", device)
